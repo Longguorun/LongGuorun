@@ -1,6 +1,6 @@
 # HTML基础
 
-#### web相关
+#### 1.web相关
 
 - 浏览器内核：渲染引擎（rendering engine）和 JS引擎。常见的浏览器内核
 
@@ -21,7 +21,7 @@ GBK包含全部中文字符    是GB2312的扩展，加入对繁体字的支持�
 UTF-8则包含全世界所有国家需要用到的字符
 ```
 
-#### HTML5语法特性(相较于HTML4)
+#### 2.HTML5语法特性(相较于HTML4)
 
 - ##### 文档类型,声明方法不同
 
@@ -69,36 +69,209 @@ html5
   <input type=text>
   ```
 
-#### 常用标签
+#### 3.常用标签
 
-|  标签类型   |  标签名   |            标签             | 使用说明                                     |
-| :-----: | :----: | :-----------------------: | ---------------------------------------- |
-|  排版标签   |  标题标签  |       <hN>标题文本<hN>        | N为数字1~5                                  |
-|         |  段落标签  |        <p>文本内容</p>        |                                          |
-|         | 水平线标签  |          <hr />           | 单标签                                      |
-|         |  换行标签  |          <br />           | 单标签                                      |
-|         | div标签  |        <div></div>        | 拥有块特性                                    |
-|         | span标签 |       <span></span>       | 拥有行特性                                    |
-| 文本格式化标签 |  加粗标签  |          <b></b>          |                                          |
-|         |  斜体标签  |          <i></i>          |                                          |
-|         | 删除线标签  |          <s></s>          |                                          |
-|         | 下划线标签  |          <u></u>          |                                          |
-| 插入文件标签  |  图片标签  |      <img  src=" "/>      | 单标签，src为文件地址                             |
-|         |  链接标签  | <a href="" target=""></a> | href中添加链接地址；<br>target中添加目标弹出方式：self（默认），blank（新窗口中打开） |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
-|         |        |                           |                                          |
+##### 3.1排版标签
+
+- 标题标签
+
+  ```html
+  <hn>   标题文本   </hn>
+  ```
+
+- 段落标签
+
+  ```html
+  <p>  文本内容  </p>
+  ```
+
+- 水平线标签
+
+  ```html
+  <hr />是单标签
+  ```
+
+- 换行标签
+
+  ```html
+  <br />
+  ```
+
+- div标签
+
+  ```html
+  <div> 这是头部 </div>    
+  ```
+
+- span标签
+
+  ```html
+  <span>今日价格</span>
+  ```
+
+##### 3.2文本格式化标签
+
+- 斜体标签
+
+  ```html
+  <i></i>
+  ```
+
+- 加粗标签
+
+  ```html
+  <b></b>
+  ```
+
+- 删除线标签
+
+  ```html
+  <s></s>
+  ```
+
+- 下划线标签
+
+  ```html
+  <u></u>
+  ```
+
+##### 3.3插入文件标签
+
+- 图片标签
+
+  ```html
+  <img src="图像URL" />
+  ```
+
+- 链接标签
+
+  ```html
+  <a href="跳转目标" target="目标窗口的弹出方式">文本或图像</a>
+  ```
+
+- 多媒体标签
+
+  ```html
+  <embed src="http://player.youku.com/player.php/sid/XMTI4MzM2MDIwOA==/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+  ```
+
+- 音乐标签
+
+  ```html
+  <audio></audio>方法上同
+  ```
+
+- 视频标签
+
+  ```html
+  <video></video>方法上同
+  ```
+
+##### 3.4列表标签
+
+- 无序列表（最常用）
+
+  ```html
+  <ul>
+    <li>列表项1</li>
+    <li>列表项2</li>
+    <li>列表项3</li>
+    ......
+  </ul>
+  ```
+
+
+- 有序列表（较少用）
+
+  ```html
+  <ol>
+    <li>列表项1</li>
+    <li>列表项2</li>
+    <li>列表项3</li>
+    ......
+  </ol>
+  ```
+
+
+- 自定义列表（较少用）
+
+  ```html
+  <dl>
+    <dt>名词1</dt>
+    <dd>名词1解释1</dd>
+    <dd>名词1解释2</dd>
+    ...
+    <dt>名词2</dt>
+    <dd>名词2解释1</dd>
+    <dd>名词2解释2</dd>
+    ...
+  </dl>
+  ```
+
+##### 3.5表格标签
+
+合并单元格：跨行合并rowspan；跨列合并colspan
+
+```html
+<table>
+  <thead>
+  	<tr>
+    	<td>单元格内的文字</td>
+    ...
+ 	</tr>  
+  </thead>
+  <tbodt>
+  	<tr>
+  	  <td>单元格内的文字</td>
+  	  ...
+ 	 </tr>
+	  ...  
+  </tbody>
+</table>
+```
+
+##### 3.6表单标签（重要）
+
+- input控件，单标签
+
+  各属性值的说明：
+
+  1. type：表单的类型。常用的有：text文本输入框、password、radio单选输入框、checkbox多选输入框、button、submit、reset、image图像形式的提交按钮、file文件域
+  2. name：控件的名称
+  3.  value：默认文本值或用户输入的文本值
+  4. size：在页面中的显示宽度
+  5. checked：默认被选中的项或用户选中的项
+  6. maxlength：控件允许输入的最大字符个数
+
+  ```html
+  <input type="" name="" value="" size="" checked="" maxlength="" />
+  ```
+
+- textarea控件（文本域）
+
+  ```html
+  <textarea cols="每行中的字符数" rows="显示的行数">
+    文本内容
+  </textarea>
+  ```
+
+- 下拉菜单
+
+  ```html
+  <select>
+    <option>选项1</option>
+    <option>选项2</option>
+    <option>选项3</option>
+    ...
+  </select>
+  ```
+
+- 表单域（Ajax中常用）
+
+  ```html
+  <form action="url地址" method="提交方式" name="表单名称">
+    各种表单控件
+  </form>
+  ```
+
+  ​
