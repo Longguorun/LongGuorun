@@ -32,7 +32,7 @@ Cascading Style Sheets：层叠样式表
 
 ### CSS样式规则
 
-![gz](https://github.com/Longguorun/LongGuorun/blob/master/CSS/img/gz.png)
+![gz](./img/gz.png)
 
 ### 属性
 
