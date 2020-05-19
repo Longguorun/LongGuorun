@@ -32,7 +32,7 @@ Cascading Style Sheets：层叠样式表
 
 ### CSS样式规则
 
-![gz](C:\Users\longg\Documents\GitHub\LongGuorun\CSS\img\gz.png)
+![gz](.\img\gz.png)
 
 ### 属性
 
@@ -54,8 +54,8 @@ Cascading Style Sheets：层叠样式表
 -    **font综合设置字体样式**
 
      ```css
-                 选择器{font: font-style  font-weight  font-size/line-height  font-family;}
-                 *必须保留font-size和font-family属性
+                    选择器{font: font-style  font-weight  font-size/line-height  font-family;}
+                    *必须保留font-size和font-family属性
      ```
 
 #### 外观样式
