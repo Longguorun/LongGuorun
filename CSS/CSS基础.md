@@ -49,13 +49,13 @@ Cascading Style Sheets：层叠样式表
 
 -    font-weight：字体粗细。可用属性值：normal（400）、bold（700）、bolder、lighter、100~900（100的整数倍）
 
--    font-style：字体风格。可用属性值：normal标、italic斜体、oblique倾斜
+-    font-style：字体风格。可用属性值：normal标、italic斜体、oblique倾斜(?)
 
 -    **font综合设置字体样式**
 
      ```css
-                       选择器{font: font-style  font-weight  font-size/line-height  font-family;}
-                       *必须保留font-size和font-family属性
+           选择器{font: font-style  font-weight  font-size/line-height  font-family;}
+           *必须保留font-size和font-family属性
      ```
 
 #### 4.2 外观样式
@@ -561,7 +561,7 @@ padding： 10px 20px 30px 40px；	上 右 下 左
   - 解决方法
     1. 给父元素添加overflow:hidden，会触发**BFC**
     2. 给父元素添加边框border: 1px solid transparent    //透明的
-    3.  给父元素或者子元素添加浮动或者定位absolute
+    3. 给父元素或者子元素添加浮动或者定位absolute
 
 ![父子元素外边距合并](./img/margin error2.png)
 
@@ -600,7 +600,7 @@ box-shadow： 水平阴影	垂直阴影	[模糊距离	阴影尺寸	阴影颜色	
   .clearfix:after {   
   	content:"";  display:table; 
   	}
-  .clearfix:after {
+  .clearfix:after {	
     	clear:both;
   }
   .clearfix {
@@ -608,7 +608,7 @@ box-shadow： 水平阴影	垂直阴影	[模糊距离	阴影尺寸	阴影颜色	
   }
   ```
 
-上述代码可以卸载css中，需要清除浮动时给估计元素添加.clearfix类属性
+上述代码可以写在css中，需要清除浮动时给估计元素添加.clearfix类属性
 
 ### 11. 定位
 
@@ -657,3 +657,200 @@ dispaly属性为block、list-item、table的元素
 1. **清除浮动**
 2. **解决外边距合并**
 3. 制作右侧自适应的盒子（？具体不详）
+
+### 伪元素的使用方法
+
+之所以被称为伪元素，是因为他们不是真正的页面元素，html没有对应的元素，但是其所有用法和表现行为与真正的页面元素一样
+
+**注意**
+
+**伪元素:before和:after添加的内容默认是inline元素**；这个两个伪元素的`content`属性，表示伪元素的内容,设置:before和:after时必须设置其`content`属性，否则伪元素就不起作用。--可参考清除浮动的方法
+
+### 过渡动画
+
+在CSS3里使用transition可以实现补间动画（过渡效果），并且当前元素只要有“属性”发生变化时即存在两种状态(我们用A和B代指），就可以实现平滑的过渡。参数有：
+
+- transition-property：CSS属性名称
+- transition-duration：过渡花费的时间，需加单位s。默认为0
+- transition-timing-function：运动曲线。有linnear匀速，ease渐缓，ease-in加速，ease-out减速，ease-in-out加速后减速
+- transition-delay：延迟时间
+
+```css
+transition: 要过渡的属性  花费时间  运动曲线  何时开始;
+如果有多组属性变化，还是用逗号隔开
+transition: width 0.6s ease 0s, height 0.3s ease-in 1s;
+```
+
+![trasition-timing-function](./img/trasition-timing.png)
+
+### 图像变形
+
+#### 平面操作
+
+- translate移动
+
+  ```css
+  transform：translate( x, y);
+  transform：translateX( x );
+  transform：translateY( y );
+  ```
+
+
+- scale缩放
+
+  ```css
+  transform：scale( 0.5, 1.4);
+  transform：scaleX( 0.4 );
+  transform：scaleY( 0.4 );
+  ```
+
+
+- rotagte旋转，需配合transform-origin旋转中心使用；**旋转角度必须加单位deg**
+
+  ```css
+  transform-origin：left top; //适用于有边角的图形
+  transform-origin：10px 20px；	//也可使用具体坐标设置旋转中心
+  transform：rotate(15deg);	
+  ```
+
+
+- 倾斜skew
+
+  ```css
+  transform:skew(30deg,0deg);		//分别沿x、y方向倾斜，第二个数值不跳默认为0
+  ```
+
+#### 立体操作
+
+- 绕轴旋转
+  - rotateX：横轴
+  - rotateY：纵轴
+  - rotateZ：屏幕垂直方向轴
+
+- 透视效果
+
+  原理：近大远小的原理，通过调整视距perspective，模拟视觉效果时人眼的位置
+
+  ```css
+  给产生立体动画的父元素添加属性：
+  perspective：700px；
+  ```
+
+
+- 三维位移
+  - translateX(x);
+  - translateY(y);
+  - translateZ(z);
+  - translate3d(x,y,z);
+
+
+- 背面隐藏
+
+  ```css
+  backfacevisibility：hidden； 	//背面对象就隐藏
+  ```
+
+### 动画
+
+- 定义动画
+
+  ```css
+  @keyframes goback {
+    0%{}
+    49%{
+      transform: translateX(1000px);
+    }
+    55%{
+      transform: translateX(1000px) rotateY(180deg);
+    }
+    95%{
+      transform: translateX(0) rotateY(180deg);
+    }
+    100%{
+      transform: translateX(0) rotateY(0deg);
+    }
+  }
+  ```
+
+
+- 添加动画属性
+
+  ```css
+  animation:动画名称 动画时间 运动曲线  何时开始  播放次数  是否反方向;   	
+  ```
+
+![animate属性](img/animate.png)
+
+- 常用属性
+
+  ```css
+  animation-iteration-count:infinite;  无限循环播放
+  animation-play-state:paused;   暂停动画"
+  ```
+
+### 伸缩布局
+
+- 父元素的属性设置
+
+  ```css
+  display：flex；
+  最小最大值
+  min-width：260px；
+  max-width：1080px；
+  排列方向，默认为水平方向
+  flex-direction：column；	垂直排列，后接 -reverse为反向
+  flex-direction：row；
+  ```
+  - **justify-content**调整主轴水平对齐：
+
+    flex-start 默认，容器开头
+
+    flex-end	容器结尾 
+
+    center 居中
+
+    space-between 左右贴近盒子边界，中间平均分配
+
+    space-around 之前、之后、之间都留有平均分配空白
+
+  - **align-items**调整侧轴垂直对齐：
+
+    strech 默认，项目被拉伸以适应容器
+
+    center 居中
+
+    flex-start、flex-end
+
+  - **flex-wrap** 控制换行，当子盒子超过父盒子宽度时
+
+    nowrap  默认不换行，强制一行内显示
+
+    wrap  必要时拆行或换行
+
+    wrap-reserve  反向
+
+  - 简写**flex-flow**：flex-direction、flex-wrap的简写形式
+
+    ```css
+    flex-flow: flex-direction  flex-wrap; 
+    ```
+
+  - **align-content**堆栈（由flex-wrap产生的独立行）多行垂直对齐方式齐
+
+    align-content是针对flex容器里面多轴(多行)的情况,align-items是针对一行的情况进行排列。
+
+    必须对父元素设置自由盒属性display:flex;，并且设置排列方式为横向排列flex-direction:row;并且设置换行，flex-wrap:wrap;这样这个属性的设置才会起作用。
+
+    | 值             | 描述                       |
+    | ------------- | ------------------------ |
+    | stretch       | 默认值。项目被拉伸以适应容器。          |
+    | center        | 项目位于容器的中心。               |
+    | flex-start    | 项目位于容器的开头。               |
+    | flex-end      | 项目位于容器的结尾。               |
+    | space-between | 项目位于各行之间留有空白的容器内。        |
+    | space-around  | 项目位于各行之前、之间、之后都留有空白的容器内。 |
+
+- 子元素的属性设置  
+
+  - flex：1；    填写数字，伸缩分配比例
+  - order：2；order控制子项目的排列顺序，正序方式排序。可以为负值。 默认值是 0
