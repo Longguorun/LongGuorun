@@ -1,0 +1,64 @@
+<!-- /*
+* @Author: Longguorun
+* @Date:   2020-05-26 13:53:43
+* @Last Modified by:   longg
+* @Last Modified time: 2020-05-26 14:15:26
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#b1 {
+			background-color: red;
+			width: 500px;
+			height: 500px;
+		}
+		#b2 {
+			background-color: yellow;
+			width: 400px;
+			height: 400px;
+		}
+		#b3 {
+			background-color: green;
+			width: 300px;
+			height: 300px;
+		}
+		#b4 {
+			background-color: blue;
+			width: 200px;
+			height: 200px;
+		}		
+	</style>
+</head>
+<body>
+	<div id="b1">1
+		<div id="b2">2
+			<div id="b3">3
+				<div id="b4">4</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	document.getElementById("b1").onclick = function(){
+		console.log(1);
+	};
+	document.getElementById("b2").onclick = function(){
+		console.log(2);
+	};
+	document.getElementById("b3").onclick = function(){
+		console.log(3);
+	};
+	document.getElementById("b4").onmouseover = function(e){
+		e.stopImmediatePropagation();		
+		console.log(4);
+		// e.stopPropagation();
+		// e.preventDefault();   //不能阻止冒泡
+
+	};
+</script>
+</html>

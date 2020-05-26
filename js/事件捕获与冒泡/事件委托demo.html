@@ -1,0 +1,42 @@
+<!-- /*
+* @Author: Longguorun
+* @Date:   2020-05-26 20:17:48
+* @Last Modified by:   longg
+* @Last Modified time: 2020-05-26 20:29:07
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#big {
+			width: 600px;
+			height: 600px;
+			background-color: pink;
+		}
+		.small {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			margin: 1px;
+		}
+	</style>
+</head>
+<body>
+	<div id="big">d
+		<div class="small">1</div>
+		<div class="small">2</div>
+		<div class="small">3</div>
+		<div class="small">4</div>
+		<div class="small">5</div>
+	</div>
+</body>
+<script>
+	var big = document.getElementById('big').onclick = function(e){		
+		e.target.innerText = 'aaa';
+		console.log(e);
+	};
+</script>
+</html>
