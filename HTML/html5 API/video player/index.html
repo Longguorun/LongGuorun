@@ -1,0 +1,234 @@
+<!-- /*
+* @Author: Longguorun
+* @Date:   2020-05-27 15:03:51
+* @Last Modified by:   longg
+* @Last Modified time: 2020-05-27 18:41:58
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>视频播放器</title>
+	<style>
+		figure {
+			border: 1px solid black;
+			width: 800px;
+			height: 500px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			margin: 0;
+		}
+		figcaption {
+			text-align: center;
+			font-size: 40px;
+			font-weight: bold;
+			letter-spacing: 10px;
+			margin: 10px;
+		}
+		#player {
+			width: 640px;
+			height: 360px;
+			background: url(loading.gif) no-repeat center center #000;
+			position: absolute;
+			left: 50%;
+			top: 55%;
+			transform: translate(-50%,-50%);
+		}
+		video {
+			display: none;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+		}
+		video::-webkit-media-controls {
+   			 display: none !important;
+		}
+		#control {
+			width: 90%;
+			height: 30px;
+			margin: 10px 0;
+			border-radius: 5px;
+			background-color: rgba(255,255,255,0.2);
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			display: none;
+			z-index: 10;
+		}
+		.btn1, .btn2 {
+			width: 20px;
+			height: 20px;
+			background-color: blue;
+			font-size: 14px;
+			line-height: 20px;
+			text-align: center;
+			position: absolute;			
+			top: 50%;
+			transform: translateY(-50%);
+			cursor: pointer;
+		}
+		.btn1 {
+			left: 5px;
+		}
+		.btn2 {
+			right: 5px;
+		}
+		#box {
+			height: 10px;
+			width: 65%;
+			position: absolute;
+			left: 35px;
+			top: 50%;
+			transform: translateY(-50%);
+			border-radius: 3px;
+			overflow: hidden;
+			background-color: #555;
+			cursor: pointer;
+		}
+		#line {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;			
+		}
+		#process {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			background-color: #fff;
+			z-index: 1;
+		}
+		.time {
+			height: 20px;
+			width: 120px;
+			background-color: blue;
+			position: absolute;
+			right: 35px;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			justify-content: space-between;
+			font-size: 12px;
+			line-height: 20px;
+		}
+		.time div {
+			width: 50px;
+			font-size: 12px;
+			text-align: center;
+			height: 20px;
+			line-height: 20px;
+			padding: 0 5px;
+		}
+	</style>
+</head>
+<body>
+	<figure>
+		<figcaption>好用的视频播放器</figcaption>
+		<div id="player">
+			<video src="1.mp4" height="360" id="video"></video>
+			<div id="control">
+				<div class="btn1 paly" id="btnl">播</div>
+				<div id="box">
+					<div id="process"></div>
+					<div id="line"></div>
+				</div>
+				<div class="time">
+					<div>00:00:00</div>/<div>00:00:00</div>
+				</div>
+				<div class="btn2 full" id="btnr">全</div>
+			</div>
+		</div>
+		
+	</figure>
+</body>
+<script>
+	var video = document.getElementById('video');
+	var btnl = document.getElementById('btnl');
+	var allTime = document.getElementsByClassName('time')[0].children;
+	var pcs = document.getElementById('process');
+	var line = document.getElementById('line');
+	var player = document.getElementById('player');
+	var control = document.getElementById('control');
+	video.oncanplay = function(){			
+		allTime[1].innerText = timeTranslate(video.duration);
+	};
+	player.onmouseenter = function(){
+		control.style.display = 'block';
+		player.onmouseleave = function(){
+			setTimeout(function(){
+				control.style.display = 'none';
+			},500);
+		}
+	}
+	// player.onclick = function (e){
+	// 	e.stopPropagation();
+	// 	video.style.display = 'block';
+	// 	if( this.innerText == '播') {
+	// 		video.play();
+	// 		video.style.display = 'block';
+	// 		this.innerText = '暂';			
+	// 	} else{
+	// 		video.pause();
+	// 		video.style.display = 'block';
+	// 		this.innerText = '播';				
+	// 	}		
+	// };
+	btnl.onclick = function (e){
+		e.stopPropagation();
+		video.style.display = 'block';
+		if( this.innerText == '播') {
+			video.play();
+			this.innerText = '暂';			
+		} else{
+			video.pause();
+			this.innerText = '播';				
+		}
+	}
+	btnr.onclick = function(e){
+		e.stopPropagation();
+		if( this.innerText == '全') {
+			this.innerText = '缩';
+			video.webkitRequestFullScreen();
+			// video.style.width = '1280px';			
+		} else{
+			this.innerText = '全';
+			document.webkitCancelFullScreen();
+			// video.style.width = '640px';				
+		}
+	}
+	video.ontimeupdate = function(){
+		allTime[0].innerText = timeTranslate(video.currentTime);
+		var bate = video.currentTime / video.duration*100 +'%';
+		pcs.style.width = bate;
+	}
+	line.onclick = function(e){
+		e.stopPropagation();
+		console.log(e.offsetX);
+		var bate = e.offsetX / line.offsetWidth;
+		video.currentTime = ( video.duration*bate );
+		console.log(bate);
+	}
+	video.onended = function(){
+		video.style.display = 'none';
+		pcs.style.width = '0';
+		btnl.innerText = '播';
+		allTime[0].innerText ='00:00:00';
+	}
+	function timeTranslate(ts){
+		var h = Math.floor(ts/60/60);
+		ts = ts-60*60*h;
+		var m = Math.floor( ts/60);
+		ts = ts-60*m;
+		var s = Math.floor( ts );
+		return (h<10? "0"+h : h )+(m<10? ":0"+m : ":"+m)+(s<10? ":0"+s : ":"+s);
+	}
+</script>
+</html>
