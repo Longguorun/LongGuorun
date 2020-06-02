@@ -1,0 +1,40 @@
+<!-- /*
+* @Author: Longguorun
+* @Date:   2020-05-31 20:41:26
+* @Last Modified by:   longg
+* @Last Modified time: 2020-05-31 20:46:09
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="js/base.js"></script>
+	<style>
+		#box {
+			width: 200px;
+			height: 200px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">111</div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	touchEvents.tap(box,function(){
+		console.log('haha1');
+	});
+	box.addEventListener("touchstart",function(){
+		console.log('haha2');
+	});
+	box.addEventListener("touchmove",function(){
+		console.log('haha3');
+	});
+	box.addEventListener("touchend",function(){
+		console.log('haha4');
+	});
+</script>
+</html>

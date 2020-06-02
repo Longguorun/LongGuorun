@@ -1,0 +1,50 @@
+<!-- /*
+* @Author: Longguorun
+* @Date:   2020-05-31 19:33:01
+* @Last Modified by:   longg
+* @Last Modified time: 2020-05-31 20:06:52
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable = no">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">111</div>
+</body>
+<script src="js/base.js">
+
+	// var box = document.getElementById('box');
+	// console.log(box);
+	// var sx,sy,x,y,st;
+	// console.log(typeof(box)== "object");
+	// box.addEventListener('touchstart',function(e){
+	// 	if(e.targetTouches.length > 1) {console.log(1);return;}
+	// 	sx = e.targetTouches[0].clientX;
+	// 	sy = e.targetTouches[0].clientY;
+	// 	st = Date.now();
+	// });
+	// box.addEventListener('touchend',function(e){
+	// 	if(Date.now() - st >250) {console.log(2);return;}
+	// 	x = e.changedTouches[0].clientX - sx;
+	// 	y = e.changedTouches[0].clientY - sy;
+	// 	if(Math.abs(x)>6 || Math.abs(y)>6) {console.log(3);return;}
+	// 	console.log(4);
+	// });
+</script>
+<script>
+	var box = document.getElementById('box');
+	touchEvents.tap(box,function(){
+		console.log('haha');
+	});
+</script>
+</html>

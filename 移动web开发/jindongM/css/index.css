@@ -1,0 +1,227 @@
+/*
+* @Author: Longguorun
+* @Date:   2020-05-29 13:14:47
+* @Last Modified by:   longg
+* @Last Modified time: 2020-05-31 10:09:07
+*/
+body {
+	max-width: 640px;
+	min-width: 320px;
+	background-color: #ccc;
+}
+.searchBox {
+	width: 100%;
+	height: 40px;
+	background-color: rgba(230,49,49,0);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+}
+#jd_logo {
+	display: block;
+	width: 56px;
+	height: 30px;
+	background-size: 200px 200px;
+	background-image: url(../images/jd-sprites.png);
+	background-position: 0 -107px;
+	position: absolute;
+	left: 10px;
+	top: 5px;
+}
+#jd_login {
+	display: block;
+	width: 40px;
+	height: 30px;
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+}
+form {
+	width: 100%;
+	height: 30px;
+	margin-top: 5px;
+	padding: 0 55px 0 71px;
+}
+#search {
+	width: 100%;
+	height: 30px;
+	border: 0.5px solid #ccc;
+	border-radius: 15px;
+	padding-left: 30px;
+}
+form::before {
+	content: "";
+	width: 28px;
+	height: 26px;
+	position: absolute;
+	left: 75px;
+	top: 7px;
+	background-size: 200px 200px;
+	background-image: url(../images/jd-sprites.png);
+	background-position:-55px -107px;
+}
+.banner {
+	width: 100%;
+	position: relative;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+.banner_images {
+/*	width: 800%;
+*/
+	position: relative;
+/*	transition: all 0.5s;
+*/
+}
+.banner_images li{
+	float: left;
+/*	width: 12.5%;
+*/}
+.banner img {
+	width: 100%;
+	display: block;
+}
+.banner_index {
+	width: 140px;
+	height: 15px;
+	background-color: rgba(0,0,0,0.3);
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 10px;
+	display: flex;
+	justify-content: space-around;
+	border-radius: 5px;
+	z-index: 2;
+}
+.banner_index li {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	margin-top: 4px;
+}
+.banner_index .current {
+	background-color: #fff;
+}
+.nav {
+	width: 100%;
+	background-color: #fff;
+	padding: 10px 0;
+}
+.nav li {
+	margin-top: 5px;
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+.nav li a {
+	display: block;
+}
+.nav li img {
+	width: 50px;
+	margin: 0 auto;
+}
+
+.product {
+	width: 100%;
+	margin-top: 5px;
+	background-color: #fff;
+}
+.product_tip_l {
+
+	border-bottom: 1px solid #ccc;
+}
+
+.product_tip_l .time {
+*/	height: 30px;
+	line-height: 30px;
+	float: left;
+	margin-left: 10px;
+
+}
+#miao {
+	margin: 0 5px;
+	float: left;
+}
+#clock {
+	height: 20px;
+	width: 16px;
+	background-size: 16px 20px;
+	background-image: url(../images/seckill-icon.png);
+	background-position: center center;
+	margin: 3px 5px 0 5px;
+	float: left;
+}
+#clocktime {
+	float: left;
+	height: 30px;
+	margin: 0 5px;
+	line-height: 30px;
+}
+
+#clocktime .num {
+	background-color: #000;
+	color: #fff;
+	padding: 0 2px;
+}
+.product_tip_l a {
+	float: right;
+	line-height: 30px;
+	margin-right: 10px;
+}
+.product_details {
+	width: 100%;
+
+}
+.product_details li {
+	width: 33.33%;
+	float: left;
+}
+.product_details li a {
+	display: block;
+	width: 100%;
+	padding: 20px;
+	
+}
+.product_details img {
+	width: 100%;
+}
+.product_details p {
+	text-align: center;
+}
+.jd_supermarket {
+	background-color: #fff;	
+	margin-top: 5px;
+}
+.supermarket_tip {
+	border-bottom: 1px solid #ccc;
+}
+.jd_supermarket h3 {
+	line-height: 30px;
+	margin: 0 0 0 20px;
+}
+.supermarket_details {
+	overflow: hidden;	
+}
+.supermarket_details a {
+	display: block;
+	float: left;
+	width: 50%;
+}
+.supermarket_details img {
+	display: block;
+	width: 100%;
+}
+#img21 {
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+#img22 {
+	border-left: 1px solid #ccc;
+}

@@ -1,0 +1,55 @@
+<!-- /*
+* @Author: Longguorun
+* @Date:   2020-05-30 16:59:07
+* @Last Modified by:   longg
+* @Last Modified time: 2020-05-30 17:47:04
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+
+		div {
+			background-color: red;
+			width: 300px;
+			height: 300px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		1231
+	</div>
+	<script>
+		var sX,sY,mX,mY;
+		var box = document.getElementsByTagName('div')[0];
+		var x = box.offsetLeft;
+		var y = box.offsetTop;
+		box.addEventListener("touchstart",function(e){
+			sX = e.targetTouches[0].clientX;
+			sY = e.targetTouches[0].clientY;
+			console.log(sX,sY);
+			console.log(e);
+		});
+		box.addEventListener("touchmove",function(e){
+			mX = e.targetTouches[0].clientX;
+			mY = e.targetTouches[0].clientY;
+			// console.log(mX,mY);
+			x = mX-sX;
+			y = mY-sY;
+			console.log(x,y);
+			box.style.left = ""+x+"px";
+			box.style.top = ""+y+"px";
+			// box.style.transform = "translate("+x+"px,"+y+"px)";	
+		});
+		box.addEventListener("touchend",function(e){
+			// sX = sY = mX = mY = x = y = 0;
+		});
+		console.log(box);
+	</script>
+</body>
+</html>
