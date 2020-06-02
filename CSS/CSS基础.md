@@ -54,8 +54,8 @@ Cascading Style Sheets：层叠样式表
 -    **font综合设置字体样式**
 
      ```css
-              选择器{font: font-style  font-weight  font-size/line-height  font-family;}
-              *必须保留font-size和font-family属性
+                 选择器{font: font-style  font-weight  font-size/line-height  font-family;}
+                 *必须保留font-size和font-family属性
      ```
 
 #### 4.2 外观样式
@@ -598,7 +598,8 @@ box-shadow： 水平阴影	垂直阴影	[模糊距离	阴影尺寸	阴影颜色	
   ```css
   .clearfix:before,
   .clearfix:after {   
-  	content:"";  display:table; 
+  	content:"";  
+    	display:table; 
   	}
   .clearfix:after {	
     	clear:both;
